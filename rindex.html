@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Euro School | Excellence in Education</title>
+    <meta name="description" content="A prestigious international school shaping future leaders.">
+    <link rel="icon" type="image/x-icon" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/svgs/solid/graduation-cap.svg">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="preloader">
+        <i class="fa-solid fa-graduation-cap loader-logo"></i>
+        <h3 class="gold-text" style="margin-top: 15px;">EURO SCHOOL</h3>
+    </div>
+
+    <button id="backToTop" onclick="window.scrollTo(0,0)">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <div class="cursor-dot" id="cursor-dot"></div>
+    <div class="cursor-outline" id="cursor-outline"></div>
+    <div class="mouse-glow" id="mouse-glow"></div>
+
+    <div id="progress-bar"></div>
+    <div class="bg-lines" id="bgLines"></div>
+
+    <nav id="navbar">
+        <div class="logo">
+            <i class="fa-solid fa-graduation-cap"></i> EURO SCHOOL
+        </div>
+        <div class="menu-toggle" id="mobile-menu">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+        <div class="nav-links">
+            <a href="#home" class="nav-btn">Home</a>
+            <a href="#about" class="nav-btn">About</a>
+            <a href="#curriculum" class="nav-btn">Academics</a>
+            <a href="#statistics" class="nav-btn">Stats</a>
+            <a href="#admissions" class="nav-btn">Admissions</a>
+            <a href="#facilities" class="nav-btn">Facilities</a>
+            <a href="#faculty" class="nav-btn">Staff</a>
+            <a href="#student-life" class="nav-btn">Life</a>
+            <a href="#news" class="nav-btn">News</a>
+            <a href="#resources" class="nav-btn">Fees</a>
+            <a href="#social" class="nav-btn">Social</a>
+            <a href="#contact" class="nav-btn btn-filled" style="color:#0a192f;">Contact</a>
+        </div>
+    </nav>
+
+    <section id="home">
+        <div class="hero-content">
+            <h4 class="gold-text gs-fade-down">Since 1995</h4>
+            <h1 class="gs-title-reveal">SHAPING FUTURE <br> LEADERS</h1>
+            <p class="gs-fade-up-delay">A world-class environment nurturing intellect, character, and innovation.</p>
+            <div style="margin-top: 30px;">
+                <a href="#admissions" class="btn btn-filled">Apply for Admission</a>
+                <a href="#curriculum" class="btn">Explore Academics</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="section-title">Who We Are</div>
+        <div class="grid-2">
+            <div class="gs-reveal-left">
+                <div class="collage-container">
+                    <img src="https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=800&auto=format&fit=crop" class="collage-1" alt="College Campus Building" loading="lazy">
+                </div>
+            </div>
+            <div class="gs-reveal-right">
+                <h3 class="gold-text">Vision & Mission</h3>
+                <p>To foster a community of learners who are intellectually curious, creative, and socially responsible. Our mission is to provide holistic education that balances academic excellence with character development.</p>
+                
+                <div style="margin: 20px 0;">
+                    <p style="font-size:0.9rem;">"Building a legacy of leadership through innovation and integrity."</p>
+                </div>
+                
+                <div class="glass-card" style="margin-top:20px;">
+                    <h4 style="margin:0;"><i class="fa-solid fa-quote-left gold-text"></i> Principal's Message</h4>
+                    <p style="font-style:italic; margin-top:10px;">"Education is not the filling of a pail, but the lighting of a fire. At Euro School, we ignite that spark."</p>
+                    <small class="gold-text">- Dr. Martha Kent</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="statistics" style="background: var(--secondary-navy);">
+        <div class="section-title">Our Achievements</div>
+        <div class="stats-wrapper">
+            <div class="stats-counters">
+                <div class="glass-card counter-card gs-scale-up">
+                    <div class="counter-number" data-target="25">0</div>
+                    <p>Years of Excellence</p>
+                </div>
+                <div class="glass-card counter-card gs-scale-up">
+                    <div class="counter-number" data-target="150">0</div>
+                    <p>Global Awards</p>
+                </div>
+                <div class="glass-card counter-card gs-scale-up">
+                    <div class="counter-number" data-target="1200">0</div>
+                    <p>Students Enrolled</p>
+                </div>
+                <div class="glass-card counter-card gs-scale-up">
+                    <div class="counter-number" data-target="100">0%</div>
+                    <p>University Placement</p>
+                </div>
+            </div>
+
+            <div class="chart-grid">
+                <div class="chart-box gs-reveal-left">
+                    <h4 class="gold-text" style="text-align:center;">Academic Performance (Avg. GPA)</h4>
+                    <canvas id="performanceChart"></canvas>
+                </div>
+                <div class="chart-box gs-reveal-right">
+                    <h4 class="gold-text" style="text-align:center;">Student Interests</h4>
+                    <canvas id="diversityChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="curriculum">
+        <div class="section-title">Academic Pathways</div>
+        <div class="grid-3">
+            <div class="glass-card gs-fade-up">
+                <div class="img-arch">
+                    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=500&auto=format&fit=crop" alt="Primary School Children" loading="lazy">
+                </div>
+                <h3 class="gold-text">Primary</h3>
+                <p>Montessori based foundation focusing on literacy, numeracy, and play-based learning.</p>
+                <ul style="margin-top:10px; font-size:0.9rem;">
+                    <li><i class="fa-solid fa-check gold-text"></i> Inquiry Learning</li>
+                    <li><i class="fa-solid fa-check gold-text"></i> Arts & Crafts</li>
+                </ul>
+            </div>
+            <div class="glass-card gs-fade-up">
+                <div class="img-arch">
+                    <img src="https://images.unsplash.com/photo-1427504746696-ea5abd7dfe83?q=80&w=500&auto=format&fit=crop" alt="Secondary Students" loading="lazy">
+                </div>
+                <h3 class="gold-text">Secondary</h3>
+                <p>Building critical thinking with a robust curriculum covering Sciences, Humanities, and Arts.</p>
+                <ul style="margin-top:10px; font-size:0.9rem;">
+                    <li><i class="fa-solid fa-check gold-text"></i> STEM Labs</li>
+                    <li><i class="fa-solid fa-check gold-text"></i> Project Work</li>
+                </ul>
+            </div>
+            <div class="glass-card gs-fade-up">
+                <div class="img-arch">
+                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=500&auto=format&fit=crop" alt="High School Graduation" loading="lazy">
+                </div>
+                <h3 class="gold-text">Higher Secondary</h3>
+                <p>Specialized streams to prepare students for top global universities and competitive exams.</p>
+                <ul style="margin-top:10px; font-size:0.9rem;">
+                    <li><i class="fa-solid fa-check gold-text"></i> Career Counseling</li>
+                    <li><i class="fa-solid fa-check gold-text"></i> Advanced Placement</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="admissions">
+        <div class="section-title">Admissions</div>
+        <div class="grid-2">
+            <div class="glass-card gs-slide-in">
+                 <h3 class="gold-text">Process</h3>
+                 <ol style="margin-left: 20px; color: white;">
+                     <li>Fill Online Inquiry Form</li>
+                     <li>Campus Visit & Assessment</li>
+                     <li>Principal Interview</li>
+                     <li>Fee Payment & Documentation</li>
+                 </ol>
+            </div>
+            <div class="glass-card gs-slide-in">
+                <h3 class="gold-text">Documents Required</h3>
+                <ul style="list-style: circle; margin-left: 20px;">
+                    <li>Birth Certificate</li>
+                    <li>Previous Academic Transcripts</li>
+                    <li>Transfer Certificate</li>
+                    <li>Passport Photos</li>
+                </ul>
+                <div style="margin-top:20px;">
+                    <button class="btn btn-filled">Apply Now</button>
+                    <button class="btn">Download Prospectus</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="facilities" style="background: var(--secondary-navy);">
+        <div class="section-title">Facilities</div>
+        <div class="grid-4">
+            <div class="glass-card life-card gs-scale-up">
+                <i class="fa-solid fa-book-open life-icon"></i>
+                <h4>Library</h4>
+            </div>
+            <div class="glass-card life-card gs-scale-up">
+                <i class="fa-solid fa-flask life-icon"></i>
+                <h4>Science Labs</h4>
+            </div>
+            <div class="glass-card life-card gs-scale-up">
+                <i class="fa-solid fa-computer life-icon"></i>
+                <h4>Computer Lab</h4>
+            </div>
+            <div class="glass-card life-card gs-scale-up">
+                <i class="fa-solid fa-futbol life-icon"></i>
+                <h4>Sports Ground</h4>
+            </div>
+            <div class="glass-card life-card gs-scale-up">
+                <i class="fa-solid fa-bus life-icon"></i>
+                <h4>Transport</h4>
+            </div>
+            <div class="glass-card life-card gs-scale-up">
+                <i class="fa-solid fa-utensils life-icon"></i>
+                <h4>Cafeteria</h4>
+            </div>
+            <div class="glass-card life-card gs-scale-up">
+                <i class="fa-solid fa-notes-medical life-icon"></i>
+                <h4>Infirmary</h4>
+            </div>
+            <div class="glass-card life-card gs-scale-up">
+                <i class="fa-solid fa-wifi life-icon"></i>
+                <h4>Smart Class</h4>
+            </div>
+        </div>
+    </section>
+
+    <section id="faculty">
+        <div class="section-title">Our Mentors</div>
+        <div class="grid-4">
+            <div class="glass-card gs-fade-up" style="text-align:center;">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=300&auto=format&fit=crop" style="border-radius:50%; width:100px; height:100px; margin:0 auto 10px; object-fit:cover;" alt="Principal" loading="lazy">
+                <h4 class="gold-text">Dr. M. Kent</h4>
+                <small>Principal</small>
+            </div>
+            <div class="glass-card gs-fade-up" style="text-align:center;">
+                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=300&auto=format&fit=crop" style="border-radius:50%; width:100px; height:100px; margin:0 auto 10px; object-fit:cover;" alt="Head of Sciences" loading="lazy">
+                <h4 class="gold-text">Mr. J. Wick</h4>
+                <small>Head of Sciences</small>
+            </div>
+            <div class="glass-card gs-fade-up" style="text-align:center;">
+                <img src="https://images.unsplash.com/photo-1580894732444-8ecded7900cd?q=80&w=300&auto=format&fit=crop" style="border-radius:50%; width:100px; height:100px; margin:0 auto 10px; object-fit:cover;" alt="Math Faculty" loading="lazy">
+                <h4 class="gold-text">Ms. S. Connor</h4>
+                <small>Math Faculty</small>
+            </div>
+            <div class="glass-card gs-fade-up" style="text-align:center;">
+                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=300&auto=format&fit=crop" style="border-radius:50%; width:100px; height:100px; margin:0 auto 10px; object-fit:cover;" alt="Arts Director" loading="lazy">
+                <h4 class="gold-text">Mr. R. Chen</h4>
+                <small>Arts Director</small>
+            </div>
+        </div>
+    </section>
+
+    <section id="student-life" style="background: var(--secondary-navy);">
+        <div class="section-title">Student Life</div>
+        <div class="grid-3">
+            <div class="glass-card life-card gs-fade-up">
+                <i class="fa-solid fa-masks-theater life-icon"></i>
+                <h3 class="gold-text">Culture & Arts</h3>
+                <p>Drama club, Music society, and annual cultural fests.</p>
+            </div>
+            <div class="glass-card life-card gs-fade-up">
+                <i class="fa-solid fa-robot life-icon"></i>
+                <h3 class="gold-text">Clubs</h3>
+                <p>Robotics, Debate, Environment, and Coding clubs.</p>
+            </div>
+            <div class="glass-card life-card gs-fade-up">
+                <i class="fa-solid fa-medal life-icon"></i>
+                <h3 class="gold-text">Sports</h3>
+                <p>Basketball, Swimming, Tennis, and Football teams.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="news">
+        <div class="grid-2">
+            <div class="glass-card gs-reveal-left">
+                <h3 class="gold-text" style="margin-bottom:20px;">News & Events</h3>
+                <div class="news-item">
+                    <span class="news-date">MAR 15</span>
+                    <h4 style="margin:5px 0;">Annual Science Exhibition</h4>
+                    <p style="font-size:0.9rem;">Students showcased innovative STEM projects.</p>
+                </div>
+                <div class="news-item">
+                    <span class="news-date">APR 02</span>
+                    <h4 style="margin:5px 0;">Inter-School Debate Win</h4>
+                    <p style="font-size:0.9rem;">Our team secured 1st position in Nationals.</p>
+                </div>
+                <button class="btn" style="margin-top:10px;">View All Events</button>
+            </div>
+            <div class="glass-card gs-reveal-right">
+                <h3 class="gold-text" style="margin-bottom:20px;">Notice Board</h3>
+                <div class="news-item">
+                    <h4 style="color:#ff5555;"><i class="fa-solid fa-bullhorn"></i> Exam Schedule</h4>
+                    <p style="font-size:0.9rem;">Final term exams start from May 10th.</p>
+                </div>
+                <div class="news-item">
+                    <h4 style="color:var(--text-white);"><i class="fa-solid fa-calendar"></i> Summer Break</h4>
+                    <p style="font-size:0.9rem;">School closed from June 1st to July 15th.</p>
+                </div>
+                <div class="news-item">
+                    <h4 style="color:var(--text-white);"><i class="fa-solid fa-file-invoice"></i> Fee Submission</h4>
+                    <p style="font-size:0.9rem;">Last date for Q2 fee submission is April 30th.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" style="background: var(--secondary-navy);">
+        <div class="section-title">Gallery</div>
+        <div class="grid-3">
+            <div class="gallery-img gs-scale-up"><img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=600&auto=format&fit=crop" alt="Gallery 1" loading="lazy"></div>
+            <div class="gallery-img gs-scale-up"><img src="https://images.unsplash.com/photo-1577896851231-70ef18898606?q=80&w=600&auto=format&fit=crop" alt="Gallery 2" loading="lazy"></div>
+            <div class="gallery-img gs-scale-up"><img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=600&auto=format&fit=crop" alt="Gallery 3" loading="lazy"></div>
+        </div>
+    </section>
+
+    <section id="testimonials">
+        <div class="section-title">Voices</div>
+        <div class="grid-3">
+            <div class="glass-card gs-fade-up">
+                <i class="fa-solid fa-quote-left gold-text fa-2x"></i>
+                <p style="margin-top:15px;">"The best decision for my child's future. The faculty is supportive and the environment is safe."</p>
+                <h4 class="gold-text" style="margin-top:10px;">- Parent (Grade 5)</h4>
+            </div>
+            <div class="glass-card gs-fade-up">
+                <i class="fa-solid fa-quote-left gold-text fa-2x"></i>
+                <p style="margin-top:15px;">"Euro School gave me the confidence to pursue Engineering at a top university."</p>
+                <h4 class="gold-text" style="margin-top:10px;">- Alumni (Batch '19)</h4>
+            </div>
+            <div class="glass-card gs-fade-up">
+                <i class="fa-solid fa-quote-left gold-text fa-2x"></i>
+                <p style="margin-top:15px;">"I love the sports facilities and the coding club. Learning here is fun!"</p>
+                <h4 class="gold-text" style="margin-top:10px;">- Student (Grade 9)</h4>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" style="background: var(--secondary-navy);">
+        <div class="section-title">FAQ</div>
+        <div style="max-width: 800px; margin: 0 auto;">
+            <details class="gs-fade-up">
+                <summary>What is the admission criteria?</summary>
+                <div class="faq-content">Admission is based on an entrance test and interview for Grade 1 upwards. Nursery is interaction-based.</div>
+            </details>
+            <details class="gs-fade-up">
+                <summary>Do you provide school transport?</summary>
+                <div class="faq-content">Yes, we have a fleet of GPS-enabled buses covering the entire city with female attendants on board.</div>
+            </details>
+            <details class="gs-fade-up">
+                <summary>What boards do you offer?</summary>
+                <div class="faq-content">We offer both CBSE and Cambridge International curriculum options.</div>
+            </details>
+        </div>
+    </section>
+
+    <section id="resources">
+        <div class="section-title">Resources & Tools</div>
+        <div class="grid-2">
+            <div class="fee-calculator gs-reveal-left">
+                <h3 class="gold-text" style="text-align:center; position:relative; z-index:1;">Fee Estimator</h3>
+                <p style="text-align:center; margin-bottom:20px; font-size:0.9rem; position:relative; z-index:1;">Select options to calculate monthly fees</p>
+                <div class="fee-row">
+                    <label>Class Level</label>
+                    <select id="class-select" onchange="calculateFee()" style="width: 60%;">
+                        <option value="200">Nursery - Grade 5</option>
+                        <option value="250">Grade 6 - 8</option>
+                        <option value="300">Grade 9 - 12</option>
+                    </select>
+                </div>
+                <label style="position:relative; z-index:1;">Facilities (Add-ons)</label>
+                <div class="checkbox-group">
+                    <div class="checkbox-btn" onclick="toggleOption(this, 50)">+ Transport ($50)</div>
+                    <div class="checkbox-btn" onclick="toggleOption(this, 80)">+ Meal Plan ($80)</div>
+                    <div class="checkbox-btn" onclick="toggleOption(this, 40)">+ Sports Academy ($40)</div>
+                </div>
+                <div class="fee-result" id="fee-display">Total Estimated: $200 / Month</div>
+                <button class="btn btn-filled" style="width:100%; margin-top:20px; position:relative; z-index:1;" onclick="downloadFeePDF()">
+                    <i class="fa-solid fa-file-pdf"></i> Download Structure
+                </button>
+            </div>
+
+            <div class="glass-card gs-reveal-right" style="display:flex; flex-direction:column; justify-content:center;">
+                <h3 class="gold-text">Quick Downloads</h3>
+                <div class="download-card">
+                    <div style="display:flex; align-items:center;">
+                        <i class="fa-solid fa-file-pdf download-icon"></i>
+                        <span>School Prospectus 2024</span>
+                    </div>
+                    <i class="fa-solid fa-download gold-text"></i>
+                </div>
+                <div class="download-card">
+                    <div style="display:flex; align-items:center;">
+                        <i class="fa-solid fa-file-word download-icon" style="color:#5555ff;"></i>
+                        <span>Admission Form</span>
+                    </div>
+                    <i class="fa-solid fa-download gold-text"></i>
+                </div>
+                <br>
+                <h3 class="gold-text">Careers</h3>
+                <div class="job-card" style="border:none;">
+                    <div>
+                        <h4>Senior Math Teacher</h4>
+                        <small>5+ Years Exp | Full Time</small>
+                    </div>
+                    <button class="btn" style="padding:5px 15px; font-size:0.7rem;">Apply</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="section-title">Contact Us</div>
+        <div class="contact-container">
+            <div class="glass-card gs-reveal-left">
+                <h3 class="gold-text">Get in Touch</h3>
+                <p><i class="fa-solid fa-location-dot gold-text"></i> 55 Education Lane, Knowledge Park</p>
+                <p><i class="fa-solid fa-phone gold-text"></i> +1 (555) 123-4567</p>
+                <p><i class="fa-solid fa-envelope gold-text"></i> info@euroschool.edu</p>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.562094572236!2d77.22732107550024!3d28.61291197567544!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce2daa9eb4d0b%3A0x717971125923e5d!2sIndia%20Gate!5e0!3m2!1sen!2sin!4v1709224455823!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+
+            <form class="glass-card gs-reveal-right">
+                <h3 class="gold-text">Send Message</h3>
+                <input type="text" placeholder="Full Name" required>
+                <input type="email" placeholder="Email Address" required>
+                <textarea rows="4" placeholder="Your Message"></textarea>
+                <button class="btn btn-filled" style="width:100%;">Submit</button>
+            </form>
+        </div>
+    </section>
+
+    <section id="social">
+        <div class="section-title">Connect With Us</div>
+        <div class="grid-4">
+            <div class="glass-card social-card gs-scale-up">
+                <i class="fa-brands fa-instagram social-icon"></i>
+                <h3 class="gold-text">Instagram</h3>
+                <small class="gold-text">@EuroSchoolOfficial</small>
+            </div>
+            <div class="glass-card social-card gs-scale-up">
+                <i class="fa-brands fa-facebook-f social-icon"></i>
+                <h3 class="gold-text">Facebook</h3>
+                <small class="gold-text">/EuroSchoolInt</small>
+            </div>
+            <div class="glass-card social-card gs-scale-up">
+                <i class="fa-brands fa-linkedin-in social-icon"></i>
+                <h3 class="gold-text">LinkedIn</h3>
+                <small class="gold-text">Euro School Academy</small>
+            </div>
+            <div class="glass-card social-card gs-scale-up">
+                <i class="fa-brands fa-youtube social-icon"></i>
+                <h3 class="gold-text">YouTube</h3>
+                <small class="gold-text">EuroSchool TV</small>
+            </div>
+        </div>
+    </section>
+
+    <footer style="background: #020c1b; padding: 40px 5%; border-top: 1px solid rgba(212,175,55,0.2);">
+        <div class="grid-3 legal-section">
+            <div>
+                <h4>Euro School</h4>
+                <p class="legal-text">Excellence in education since 1995. Shaping the leaders of tomorrow.</p>
+            </div>
+            <div>
+                <h4>Privacy Policy</h4>
+                <p class="legal-text">We value your privacy. Your data is collected only for admission purposes.</p>
+            </div>
+            <div>
+                <h4>Terms & Conditions</h4>
+                <p class="legal-text">Content on this website is owned by Euro School. Unauthorized reproduction is prohibited.</p>
+            </div>
+        </div>
+        <div style="text-align:center; margin-top:30px; border-top:1px solid rgba(255,255,255,0.05); padding-top:20px; font-size:0.8rem;">
+            © 2024 Euro School International. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
